@@ -1,0 +1,302 @@
+//
+// Component: Button
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//@button-line-height:                            @global-control-height - (@button-border-width * 2);
+@button-line-height:                            @global-control-height - (@button-border-width * 2);
+@button-small-line-height:                      @global-control-small-height - (@button-border-width * 2);
+@button-large-line-height:                      @global-control-large-height - (@button-border-width * 2);
+
+@button-font-size:                              @global-small-font-size;
+@button-large-font-size:                        @global-small-font-size;
+
+@button-default-background:                     transparent;
+@button-default-hover-background:               transparent;
+@button-default-active-background:              transparent;
+
+@button-disabled-background:                    transparent;
+
+@button-text-color:                             @global-emphasis-color;
+@button-text-hover-color:                       @global-emphasis-color;
+
+//
+// New
+//
+
+@button-text-transform:                         uppercase;
+
+@button-border-width:                           @global-border-width;
+
+@button-default-border:                         @global-border;
+@button-default-hover-border:                   darken(@global-border, 20%);
+@button-default-active-border:                  rgba(0, 0, 0, 0.2);//darken(@global-border, 30%);
+
+@button-disabled-border:                        @global-border;
+
+@button-text-border-width:                      @global-border-width;
+@button-text-border:                            @button-text-hover-color;
+
+//
+// Moje
+//
+@button-active-shadow:                          inset 0 2px 4px rgba(0, 0, 0, 0.2);
+
+// Component
+// ========================================================================
+
+.hook-button() {
+    text-transform: @button-text-transform;
+    transition: 0.1s ease-in-out;
+    transition-property: color, background-color, border-color;
+    background-image: linear-gradient(to bottom, #ffffff, #eeeeee);
+    text-shadow: 0 1px 0 #ffffff;
+}
+
+.hook-button-hover() { background-image: none; }
+
+.hook-button-focus() { background-image: none; }
+
+.hook-button-active() {
+    background-image: none;
+    box-shadow: @button-active-shadow;
+}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-button-default() { border: @button-border-width solid @button-default-border; }
+
+.hook-button-default-hover() { border-color: @button-default-hover-border; }
+
+.hook-button-default-active() {
+    border-color: @button-default-active-border;
+    background-color: #f5f5f5;
+    border-bottom-color: rgba(0, 0, 0, 0.4);
+
+}
+
+//
+// Primary
+//
+
+.hook-button-primary() { border: @button-border-width solid transparent; }
+
+.hook-button-primary-hover() {}
+
+.hook-button-primary-active() {}
+
+//
+// Secondary
+//
+
+.hook-button-secondary() { border: @button-border-width solid transparent; }
+
+.hook-button-secondary-hover() {}
+
+.hook-button-secondary-active() {}
+
+//
+// Danger
+//
+
+.hook-button-danger() {
+   // border: @button-border-width solid transparent;
+    background-color: #d32c46;
+    background-image: linear-gradient(to bottom, #ee465a, #c11a39);
+    border-color: @button-default-active-border;
+    border-bottom-color: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.uk-button-danger.darker {
+    background-color: #a71628!important;
+}
+
+.hook-button-danger-hover() {
+    background-color: #e33551;
+    background-image: none!important;
+}
+
+.hook-button-danger-active() {
+    background-color: #c91c37!important;
+    background-image: none!important;
+    border-color: @button-default-active-border;
+    border-top-color: rgba(0, 0, 0, 0.4);
+}
+
+
+// Disabled
+// ========================================================================
+
+.hook-button-disabled() { border-color: @button-disabled-border; opacity: 0.45;}
+
+
+// Size modifiers
+// ========================================================================
+
+.hook-button-small() {}
+
+.hook-button-large() {}
+
+
+// Text modifier
+// ========================================================================
+
+.hook-button-text() {
+
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 100%;
+        border-bottom: @button-text-border-width solid @button-text-border;
+        transition: right 0.3s ease-out;
+    }
+
+}
+
+.hook-button-text-hover() {
+
+    &::before { right: 0; }
+
+}
+
+.hook-button-text-disabled() {
+
+    &::before { display: none; }
+
+}
+
+
+// Link modifier
+// ========================================================================
+
+.hook-button-link() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-button-misc() {
+    .button-twitter {
+        background-color: #1DA1F2;
+    }
+    .button-twitter:hover {
+        background-color: #0d95e8;
+    }
+    .button-twitter:active {
+        background-color: #0c85d0;
+    }
+    .uk-button.uk-button-primary {
+        background-image: unset;
+    }
+    /* Group
+     ========================================================================== */
+
+    /*
+     * Collapse border
+     */
+
+    .uk-button-group > .uk-button:nth-child(n+2),
+    .uk-button-group > div:nth-child(n+2) .uk-button { margin-left: -@button-border-width; }
+
+    /*
+     * Create position context to superimpose the successor elements border
+     * Known issue: If you use an `a` element as button and an icon inside,
+     * the active state will not work if you click the icon inside the button
+     * Workaround: Just use a `button` or `input` element as button
+     */
+
+    .uk-button-group .uk-button:hover,
+    .uk-button-group .uk-button:focus,
+    .uk-button-group .uk-button:active,
+    .uk-button-group .uk-button.uk-active {
+        position: relative;
+        z-index: 1;
+    }
+
+    .uk-button.uk-button-danger-outline {
+        color: @text-danger-color;
+        border: 1px solid @text-danger-color;
+    }
+    .uk-button-large > h2 {
+        padding: 0 40px;
+        line-height: 53px;
+        font-size: 1.2rem;
+    }
+    .uk-button-default.invert > h2:not(:hover) {
+        background-color: transparent;
+        color: #222!important;
+        border-color: rgba(255, 255, 255, 0.7);
+    }
+    .uk-icon-button.icon-button-small {
+        height: 28px;
+        width: 28px;
+    }
+    .uk-icon-button.icon-button-large {
+        height: 64px;
+        width: 64px;
+        padding: 8px;
+    }
+    .uk-button.icon-button {
+        padding: 5px 20px;
+    }
+    .uk-button.uk-button-small.icon-button {
+        padding: 5px 10px;
+    }
+    .uk-button:not(.flat-button){
+        border-radius: @border-rounded-border-radius;
+    }
+    .uk-button-group .uk-button {
+        border-radius: 0px;
+    }
+    .uk-button-group:not(.flat-button) .uk-button:first-child {
+        border-radius: @border-rounded-border-radius 0 0 @border-rounded-border-radius;
+    }
+    .uk-button-group:not(.flat-button) .uk-button:last-child {
+        border-radius: 0 @border-rounded-border-radius @border-rounded-border-radius 0;
+    }
+}
+
+
+// Inverse
+// ========================================================================
+
+@inverse-button-default-background:            transparent;
+@inverse-button-default-color:                 @text-secondary-color;//@inverse-global-emphasis-color;
+@inverse-button-default-hover-background:      transparent;
+@inverse-button-default-hover-color:           @inverse-global-emphasis-color;
+@inverse-button-default-active-background:     transparent;
+@inverse-button-default-active-color:          @inverse-global-emphasis-color;
+
+@inverse-button-text-color:                    @inverse-global-emphasis-color;
+@inverse-button-text-hover-color:              @inverse-global-emphasis-color;
+
+.hook-inverse-button-default() { border-color: @inverse-global-color; }
+.hook-inverse-button-default-hover() { border-color: @inverse-global-emphasis-color; }
+.hook-inverse-button-default-active() { border-color: @inverse-global-emphasis-color; }
+
+.hook-inverse-button-primary() {}
+.hook-inverse-button-primary-hover() {}
+.hook-inverse-button-primary-active() {}
+
+.hook-inverse-button-secondary() {}
+.hook-inverse-button-secondary-hover() {}
+.hook-inverse-button-secondary-active() {}
+
+.hook-inverse-button-text() {
+    &::before { border-bottom-color: @inverse-global-emphasis-color; }
+}
+.hook-inverse-button-text-hover() {}
+.hook-inverse-button-text-disabled() {}
+
+.hook-inverse-button-link() {}

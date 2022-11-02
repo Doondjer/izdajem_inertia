@@ -1,0 +1,49 @@
+//
+// Component: Label
+//
+// ========================================================================
+@label-background:                              @global-muted-background;
+@label-color:                                   @button-default-color;
+@label-danger-background: #cb2027;
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+@label-border-radius:                           2px;
+@label-text-transform:                          uppercase;
+
+
+// Component
+// ========================================================================
+
+.hook-label() {
+    border-radius: @label-border-radius;
+    text-transform: @label-text-transform;
+    border: 1px solid #e5e5e5;
+}
+
+
+// Color modifiers
+// ========================================================================
+
+.hook-label-success() {border: unset;}
+
+.hook-label-warning() {border: unset;}
+
+.hook-label-danger() {border: unset;}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-label-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-label() {}
