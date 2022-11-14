@@ -68,6 +68,11 @@
                     <img class="uk-margin-small-right uk-visible@s" src="/icons/undelete.svg" alt="undelete" uk-svg>
                     <span class="uk-text-middle uk-visible@s">Undelete</span>
                 </Link>
+                <Link title="Obriši oglas" class="uk-icon uk-text-danger uk-margin-small-right" method="DELETE" as="button" v-if="$page.props.user && $page.props.user.is_admin && ! listing.is_deleted" :href="route('listing.delete', listing.slug)">
+                    <img class="uk-icon-button uk-button-default icon-button-small uk-hidden@s uk-text-danger" src="/icons/trash.svg" width="15" height="15" alt="delete" uk-svg>
+                    <img class="uk-margin-small-right uk-visible@s" src="/icons/trash.svg" alt="delete" uk-svg>
+                    <span class="uk-text-middle uk-visible@s">Obriši</span>
+                </Link>
                 <Link title="Izmeni detalje oglasa" :href="route('listing.edit', listing.slug)">
                     <img class="uk-icon-button uk-button-default icon-button-small uk-hidden@s uk-text-danger" src="/icons/pencil.svg" width="15" height="15" alt="icon_pencil" uk-svg>
                     <img class="uk-margin-small-right uk-visible@s" src="/icons/pencil.svg" alt="icon_pencil" uk-svg>

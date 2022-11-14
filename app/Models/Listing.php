@@ -219,6 +219,33 @@ class Listing extends Model implements Viewable, Sitemapable
         ->when($request->get('furnish'), function($q) use($request) {
             return $q->whereIn('furnish_type', array_keys(array_intersect(config('app_settings.values.furnish_types'), $request->get('furnish'))));
         });
+/*            ->when($request->get('structure'), function($q) use($request) {
+                return $q->whereIn('nb_room', array_keys(
+                        array_intersect(
+                            config('app_settings.values.structure'),
+                            is_array($request->get('structure')) ? $request->get('structure') : [$request->get('structure')]
+                        )
+                    )
+                );
+            })
+            ->when($request->get('type'), function($q) use($request) {
+                return $q->whereIn('type', array_keys(
+                        array_intersect(
+                            config('app_settings.values.types'),
+                            is_array($request->get('type')) ? $request->get('type') : [$request->get('type')]
+                        )
+                    )
+                );
+            })
+            ->when($request->get('furnish'), function($q) use($request) {
+                return $q->whereIn('furnish_type', array_keys(
+                        array_intersect(
+                            config('app_settings.values.furnish_types'),
+                            is_array($request->get('furnish')) ? $request->get('furnish') : [$request->get('furnish')]
+                        )
+                    )
+                );
+            });*/
     }
 
     /**
