@@ -6,6 +6,7 @@ use App\Http\Middleware\RedirectIfNotAdmin;
 use App\Http\Middleware\RedirectIfNotOwner;
 use App\Http\Middleware\RedirectIfNotOwnerOrAdmin;
 use App\Http\Middleware\RedirectIfNotParticipant;
+use App\Http\Middleware\RedirectIfNotProfileEnabledOrAdmin;
 use App\Http\Middleware\RedirectIfOwner;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -73,6 +74,7 @@ class Kernel extends HttpKernel
         'owner' => RedirectIfNotOwner::class,
         'owner.forbidden' => RedirectIfOwner::class,
         'ownerOrAdmin' => RedirectIfNotOwnerOrAdmin::class,
+        'profileOrAdmin' => RedirectIfNotProfileEnabledOrAdmin::class,
         'participant' => RedirectIfNotParticipant::class,
         'admin' => RedirectIfNotAdmin::class,
     ];

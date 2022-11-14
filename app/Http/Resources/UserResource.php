@@ -28,6 +28,7 @@ class UserResource extends JsonResource
             'twitter' => $this->twitter,
             'facebook' => $this->facebook,
             'instagram' => $this->instagram,
+            'show_profile' => $this->show_profile,
           //  'bookmarks' => $this->whenLoaded('bookmarks', $this->bookmarks->pluck('listing.slug')->all()),
           //  'unread' => MessageResource::collection($this->threads()->unread()->get()),
             'since' => $this->created_at->format('M d, Y'),

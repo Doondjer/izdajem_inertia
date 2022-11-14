@@ -10,6 +10,11 @@ use Inertia\Inertia;
 
 class LandlordsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('profileOrAdmin', ['only' => ['show']]);
+    }
+
     /**
      * Show specific resource
      *

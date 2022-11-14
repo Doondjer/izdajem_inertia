@@ -144,7 +144,7 @@
             <div class="uk-container uk-container-xsmall uk-width-xlarge">
                 <div class="uk-h3 uk-text-bold">{{ listings.data.length ? 'Još' : 'Nema više' }} nekretnina za izdavanje u opštini {{ l.district }}, grad {{ l.city }} </div>
                 <p>Ove nekretnine za izdavanje se biraju na osnovu tipa i udaljenosti od opštine {{ l.district }}, grad {{ l.city }} gde je {{ l.type === '2' ? 'oglašena' : 'oglašen' }} {{ l.type_human }} za izdavanje</p>
-                <Link :href="route('landlord.show', listing.data.user.id)" v-if="l.user" class="uk-button uk-button-default uk-button-large uk-margin-medium">Pogledaj profil stanodavca</Link>
+                <Link :href="route('landlord.show', listing.data.user.id)" v-if="l.user && l.user.show_profile" class="uk-button uk-button-default uk-button-large uk-margin-medium">Pogledaj profil stanodavca</Link>
             </div>
             <div class="uk-flex-center uk-position-relative uk-margin-medium uk-grid uk-grid-small" uk-grid="" v-if="listings.data.length">
                 <listing-card class="uk-border-rounded-xl" :listing="listing" v-for="listing in listings.data" :key="listing.slug"/>

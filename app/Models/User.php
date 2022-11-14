@@ -39,6 +39,7 @@ class User extends Authenticatable
         'email_notify_message_received',
         'email_notify_listing_created',
         'sms_notify_message_received',
+        'show_profile',
     ];
 
     /**

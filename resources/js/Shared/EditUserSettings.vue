@@ -22,6 +22,7 @@ let form = useForm({
     email_notify_message_received: !! props.values.email_notify_message_received,
     email_notify_listing_created: !! props.values.email_notify_listing_created,
     sms_notify_message_received: !! props.values.sms_notify_message_received,
+    show_profile: !! props.values.show_profile,
 });
 
 let submit = (name)  => {
@@ -40,7 +41,7 @@ let submit = (name)  => {
 
 <template>
     <div>
-        <div v-for="(data, title) in settings">
+        <div class="uk-margin-small" v-for="(data, title) in settings">
             <h2 class="uk-h5 uk-text-bold">{{ title }}</h2>
             <div class="uk-card uk-card-default uk-border-rounded-xl hr-split">
                 <div class="uk-card-body uk-padding-remove">

@@ -7,10 +7,11 @@ trait UserSettingsTrait {
     public function getValues(User $user)
     {
         return [
-            'email_notify_message_sent' => $user->email_notify_message_sent,
+            'email_notify_message_sent'     => $user->email_notify_message_sent,
             'email_notify_message_received' => $user->email_notify_message_received,
-            'email_notify_listing_created' => $user->email_notify_listing_created,
-            'sms_notify_message_received' => $user->sms_notify_message_received,
+            'email_notify_listing_created'  => $user->email_notify_listing_created,
+            'sms_notify_message_received'   => $user->sms_notify_message_received,
+            'show_profile'                  => $user->show_profile,
         ];
     }
 
@@ -47,6 +48,15 @@ trait UserSettingsTrait {
                     'description' => 'Omogućite slanje obaveštenja putem SMS, na vaš broj telefona, kada vam stigne nova poruka od korisnika putem našeg sistema poruka.',
                     'notice' => $user->isPhoneVerified() ? '' : 'Morate imati verifikovan broj telefona u sekciji "Moj Profil"!',
                     'disabled' => ! $user->isPhoneVerified()
+                ],
+            ],
+            'Podešavanja' => [
+                [
+                    'title' => 'Omogući profil',
+                    'name' => 'show_profile',
+                    'on' => 'Izdajem.rs',
+                    'value' => $user->show_profile,
+                    'description' => 'Omogućite prikazivanje stranice vašeg profila drugim korisnicima.'
                 ],
             ]
         ];

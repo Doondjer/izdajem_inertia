@@ -28,6 +28,7 @@ class UserSettingsRequest extends FormRequest
             'email_notify_message_received' => 'boolean',
             'email_notify_listing_created' => 'boolean',
             'sms_notify_message_received' => 'boolean',
+            'show_profile' => 'boolean',
         ];
     }
 }

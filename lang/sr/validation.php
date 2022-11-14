@@ -217,6 +217,7 @@ return [
         'email_notify_message_sent' => 'Email za poslate poruke',
         'email_notify_message_received' => 'Email za primljene poruke',
         'email_notify_listing_created' => 'Email za postavljene nekretnine',
+        'show_profile'          => 'Prikaži profil',
     ],
     'ne_mozete_potvrditi_prethodno_odbijeno_razgledanje' => 'Ne možete potvrditi prethodno odbijeno razgledanje.',
     'ne_mozete_odbiti_prethodno_potvrdjeno_razgledanje' => 'Ne možete odbiti prethodno potvrdjeno razgledanje.',
