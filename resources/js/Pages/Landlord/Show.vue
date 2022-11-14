@@ -55,7 +55,8 @@
                                 </template>
                             </card>
 
-                            <p class="uk-text-bold">Prikazano {{ listings.meta.from }} - {{ listings.meta.to }} od {{ listings.meta.total }} nekretnina za izdavanje.</p>
+                            <p v-if="listings.meta.total" class="uk-text-bold">Prikazano {{ listings.meta.from }} - {{ listings.meta.to }} od {{ listings.meta.total }} nekretnina za izdavanje.</p>
+                            <p v-else class="uk-text-bold">Korisnik nema oglašenih nekretnina za izdavanje</p>
 
                             <div class="uk-grid-small uk-grid uk-position-relative l-wrapper l-2-rows" uk-grid="masonry: true">
                                 <listing-card v-for="listing in listings.data" :listing="listing" :key="listing.id" />
