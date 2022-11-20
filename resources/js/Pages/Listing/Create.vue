@@ -89,6 +89,15 @@
                             :error="form.errors.user_id"
                             placeholder="Id Korisnika..."
                         />
+                        <text-input v-if="store_route !== route('listing.store')"
+                            class="uk-margin"
+                            v-model="form.source_url"
+                            icon="upload"
+                            label="Adresa ka sajtu sa koga je oglas"
+                            type="text"
+                            :error="form.errors.source_url"
+                            placeholder="Adresa ka sajtu sa koga je oglas..."
+                        />
 
                     </div>
                     <div class="uk-card-footer uk-margin-remove-top uk-hr uk-text-right">
@@ -143,6 +152,7 @@
         latitude: null,
         longitude: null,
         user_id: null,
+        source_url: null,
     })
 
     watch(address, (newValue, oldValue) => {

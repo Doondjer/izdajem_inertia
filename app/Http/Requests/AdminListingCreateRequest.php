@@ -26,7 +26,8 @@ class AdminListingCreateRequest extends FormRequest
         return array_merge(
             (new ListingCreateRequest())->rules(),
             [
-                'user_id' => 'required|exists:users,id'
+                'user_id' => 'required|exists:users,id',
+                'source_url'        => 'nullable|active_url'
             ]);
     }
 }

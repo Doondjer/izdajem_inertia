@@ -38,8 +38,15 @@
             </div>
         </div>
         <div class="uk-card-footer uk-grid uk-grid-collapse" uk-grid>
-            <div class="uk-text-meta uk-width-expand"><span class="uk-text-bold uk-visible@m">#{{ listing.id }}</span>
-                <Link class="uk-margin-small-left uk-text-meta uk-visible@m" :href="route('listing.show', listing.slug)">{{ listing.slug }}</Link>
+            <div class="uk-text-meta uk-width-expand">
+                <div>
+                    <span class="uk-text-bold uk-visible@m">#{{ listing.id }}</span>
+                    <Link class="uk-margin-small-left uk-text-meta uk-visible@m" :href="route('listing.show', listing.slug)">{{ listing.slug }}</Link>
+                </div>
+                <div v-if="$page.props.user && $page.props.user.is_admin && listing.source_url">
+                    <span class="uk-text-bold uk-visible@m">Source</span>
+                    <span class="uk-margin-small-left uk-text-meta uk-visible@m">{{ listing.source_url }}</span>
+                </div>
                 <div class="uk-hidden@m">
                     <span class="uk-label uk-border-rounded uk-text-capitalize" :class="{'uk-label-danger': listing.status === 'rented', 'uk-label-success': listing.status === 'published'}">{{ listing.status_human }}</span>
                 </div>
@@ -81,8 +88,15 @@
             </div>
         </div>
         <div class="uk-card-footer uk-hidden@m">
-            <div class="uk-text-meta uk-text-center"><span class="uk-text-bold">#{{ listing.id }}</span>
-                <Link class="uk-margin-small-left uk-text-meta" :href="route('listing.show', listing.slug)">{{ listing.slug }}</Link>
+            <div class="uk-text-meta uk-text-center">
+                <div>
+                    <span class="uk-text-bold">#{{ listing.id }}</span>
+                    <Link class="uk-margin-small-left uk-text-meta" :href="route('listing.show', listing.slug)">{{ listing.slug }}</Link>
+                </div>
+                <div v-if="$page.props.user && $page.props.user.is_admin && listing.source_url">
+                    <span class="uk-text-bold uk-visible@m">Source</span>
+                    <span class="uk-margin-small-left uk-text-meta uk-visible@m">{{ listing.source_url }}</span>
+                </div>
             </div>
         </div>
     </div>
