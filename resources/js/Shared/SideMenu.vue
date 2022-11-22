@@ -19,8 +19,8 @@
                             Naslovna Strana
                         </Link>
                     </li>
-                    <li class="uk-nav-item"><Link href="/pretraga">Pretražite Nekretnine</Link></li>
-                    <li class="uk-nav-item"><a href="#">Oglasite Izdavanje Nekretnine</a></li>
+                    <li class="uk-nav-item"><Link :href="route('listing.index')">Pretražite Nekretnine</Link></li>
+                    <li class="uk-nav-item"><Link :href="route('advertise')">Oglasite Izdavanje Nekretnine</Link></li>
                 </ul>
 
                 <user-menu class="uk-nav-default" v-if="$page.props.user" :logout="false" />

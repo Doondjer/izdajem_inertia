@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="uk-card-footer">
-                    <Link class="uk-button uk-button-danger uk-button-large uk-width-auto@s uk-width-1-1" :href="route('listing.create')">Oglasi odmah</Link>
+                    <Link class="uk-button uk-button-danger uk-button-large uk-width-auto@s uk-width-1-1" :href="route('listing.create')">Kliknite ovde da postavite oglas</Link>
                 </div>
             </div>
         </div>
