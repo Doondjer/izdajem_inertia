@@ -1,9 +1,10 @@
 <template>
 
-    <head>
+    <Head>
         <title>Izdavanje stanova Beograd, Novi Sad, Srbija</title>
+        <meta head-key="og:title" property="og:title" content="Izdavanje stanova Beograd, Novi Sad, Srbija" />
         <meta head-key="description"  name="description" content="Izdajem.rs je oglasnik za izdavanje nekretnina u Srbiji. Oglasite izdavanje vašeg stana, kuće, poslovnog prostora ili pronađite prave stanare za vašu nekretninu.">
-    </head>
+    </Head>
 
     <div uk-scrollspy="target: > .spy; cls: uk-animation-fade; delay: 300">
         <div class="uk-cover-container" uk-height-viewport='offset-top: true; min-height: 300;' style="min-height: 300px">
@@ -111,5 +112,4 @@ defineProps({
     data: Object,
     listings: Object
 })
-
 </script>
